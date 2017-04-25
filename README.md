@@ -1,24 +1,10 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Administrators can:
+    - View carpool registration
+    - Approve Carpool registration
+    - View monthly submissions
+    
+Users can:
+    - view status of enrollment for their carpool
+    - register a carpool
+    - update a carpool
+    - Submit monthly form
