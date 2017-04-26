@@ -2,9 +2,17 @@
   %section
     - @info_requests.each do |info_request|
       .row
-        .origin.col-md-6
-          %h5 Request made by #{info_request.user.first_name} #{info_request.user.last_name}
+        .origin.col-md-12
+          %h5 Request made by #{info_request.user.contact_info}
       .row
-        Information requested for Carpool # #{info_request.carpool_id}
-        Carpool associated with #{info_request.carpool.user.first_name} #{info_request.carpool.user.last_name}
+        .col-md-9
+          Information requested for Carpool # #{info_request.carpool_id}
+          %br
+          Carpool registered by #{info_request.carpool.user.contact_info}
+        -if info_request.info_sent?  
+          Information Sent       
+        -else
+          .col-md-3
+            .btn-primary.btn.white
+              = link_to "Mark as Sent", admin_sent_info_path(info_request.id), method: :post       
       %hr      

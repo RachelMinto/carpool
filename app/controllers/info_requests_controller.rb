@@ -18,6 +18,19 @@ class InfoRequestsController < ApplicationController
     redirect_to carpools_path
   end
 
+  def sent_info
+    request = InfoRequest.find(params[:id])
+    if request
+      request.info_sent = true
+      if request.save
+        flash["success"] = "Status of request has been updated."
+      end
+    else
+      flash["danger"] = "Something went wrong."
+    end
+    redirect_to info_requests_path   
+  end
+
   private
 
   def info_requests_params

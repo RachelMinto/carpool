@@ -2,17 +2,20 @@ require 'spec_helper'
 
 describe InfoRequestsController do
   describe "GET index" do
-    let(:requests) { Fabricate(:info_request)}
     before do
-      sign_in_admin
-      get :index
     end
 
     it "Should set @info_requests" do
-      expect(assigns(:info_requests)).to match_array([requests])
+      sign_in_admin
+      request1 = Fabricate(:info_request, user_id: current_user.id)
+      get :index      
+      expect(assigns(:info_requests)).to match_array([request1])
     end
 
     it "Should render the index template" do
+      sign_in_admin
+      request1 = Fabricate(:info_request, user_id: current_user.id)
+      get :index      
       expect(response).to render_template('index')
     end
   end
