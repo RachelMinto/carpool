@@ -22,5 +22,6 @@
         -if logged_in?
           .col-md-2
             %br        
-            %button.btn.btn-primary(type="submit") Request Info        
+            .btn-primary.btn.white
+              = link_to "Request Info", info_requests_path(carpool.id), method: :post
       %hr

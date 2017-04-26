@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates_length_of :password, minimum: 8, on: :create
   validates_uniqueness_of :email
   has_one :carpool
+  has_many :info_requests
 
   has_secure_password validations: false
 end

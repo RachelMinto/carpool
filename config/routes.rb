@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :carpools, only: [:index, :new, :create, :show]
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
+  post '/info_requests/:id', to: 'info_requests#create', as: :info_requests
 end
