@@ -1,6 +1,22 @@
 require 'spec_helper'
 
 describe InfoRequestsController do
+  describe "GET index" do
+    let(:requests) { Fabricate(:info_request)}
+    before do
+      sign_in_admin
+      get :index
+    end
+
+    it "Should set @info_requests" do
+      expect(assigns(:info_requests)).to match_array([requests])
+    end
+
+    it "Should render the index template" do
+      expect(response).to render_template('index')
+    end
+  end
+
   describe "POST create" do
     context "With valid carpool" do
       before do

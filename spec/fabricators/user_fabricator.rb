@@ -5,3 +5,7 @@ Fabricator(:user) do
   password { Faker::Internet.password }
   institution { Faker::Company.name }
 end
+
+Fabricator(:admin, from: :user) do
+  admin true
+end

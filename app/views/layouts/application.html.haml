@@ -10,10 +10,10 @@
   %body
     %header.clearfix
       = render 'shared/header'
-      %section.content.clearfix
-        = render 'shared/messages'
+    %section.content.clearfix.messages
+      = render 'shared/messages'
     .container.col-md-8.col-md-offset-2        
       = yield
       %footer         
         .footer-copyright.muted
-          Created by Rachel Minto
+          

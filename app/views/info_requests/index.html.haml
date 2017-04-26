@@ -1,0 +1,10 @@
+.padded-column
+  %section
+    - @info_requests.each do |info_request|
+      .row
+        .origin.col-md-6
+          %h5 Request made by #{info_request.user.first_name} #{info_request.user.last_name}
+      .row
+        Information requested for Carpool # #{info_request.carpool_id}
+        Carpool associated with #{info_request.carpool.user.first_name} #{info_request.carpool.user.last_name}
+      %hr      

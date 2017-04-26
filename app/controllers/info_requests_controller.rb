@@ -1,8 +1,13 @@
 class InfoRequestsController < ApplicationController
   before_filter :require_user
+  before_filter :require_admin, only: :index
+
+  def index
+    @info_requests = InfoRequest.all
+  end
 
   def create
-    request = InfoRequest.new(info_requests_params.merge!(user_id: current_user.id))
+    request = InfoRequest.new(carpool_id: params[:id], user_id: current_user.id)
 
     if request.save
       flash['success'] = "Your request for information has been received. We'll be in touch!"
@@ -16,6 +21,6 @@ class InfoRequestsController < ApplicationController
   private
 
   def info_requests_params
-    params.permit(:carpool_id)
+    params.permit(:id)
   end
 end
