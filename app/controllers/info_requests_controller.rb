@@ -16,6 +16,6 @@ class InfoRequestsController < ApplicationController
   private
 
   def info_requests_params
-    params.require(:info_request).permit(:carpool_id)
+    params.permit(:carpool_id)
   end
 end

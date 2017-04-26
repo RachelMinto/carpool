@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426175445) do
+ActiveRecord::Schema.define(version: 20170426184210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,4 +56,6 @@ ActiveRecord::Schema.define(version: 20170426175445) do
     t.boolean  "admin"
   end
 
+  add_foreign_key "info_requests", "carpools"
+  add_foreign_key "info_requests", "users"
 end

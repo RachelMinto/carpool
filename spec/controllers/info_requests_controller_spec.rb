@@ -5,7 +5,8 @@ describe InfoRequestsController do
     context "With valid carpool" do
       before do
         sign_in_user
-        post :create, info_request: Fabricate.attributes_for(:info_request)
+        carpool = Fabricate(:carpool)
+        post :create, id: carpool.id
       end
 
       it "Should create a request for info" do
