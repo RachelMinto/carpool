@@ -22,8 +22,10 @@
         -if carpool.pending?
           %br
           .col-md-3
-            / = link_to "Approve", {:controller => "admin/carpool", :action => "approve", :carpool => carpool.id }
-            = link_to "Deny", "carpools/#{carpool.id}/deny", class: 'btn btn-primary'          
+            .btn-primary.btn.white
+              = link_to "Approve", admin_approve_carpool_path(carpool.id) 
+            .btn-primary.btn.white
+              = link_to "Deny", admin_deny_carpool_path(carpool.id)             
         -else
-          Status: #{carpool.status}   
+          Status: #{carpool.status}
       %hr

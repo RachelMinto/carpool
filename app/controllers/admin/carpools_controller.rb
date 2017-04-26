@@ -7,12 +7,35 @@ class Admin::CarpoolsController < ApplicationController
   end
 
   def approve
+    @carpool = Carpool.find(params[:id])
+    if @carpool
+      @carpool.status = "approved"
+      if @carpool.save
+        flash["success"] = "Carpool has been successfully approved"
+      end
+    else
+      flash["error"] = "Something went wrong."
+    end
+    redirect_to admin_carpools_path    
+  end
+
+  def deny
+    @carpool = Carpool.find(params[:id])
+    if @carpool
+      @carpool.status = "denied"
+      if @carpool.save
+        flash["success"] = "Carpool has been successfully denied."
+      end
+    else
+      flash["error"] = "Something went wrong."
+    end
+    redirect_to admin_carpools_path    
   end
 
   def require_admin
     if !current_user.admin?
-      flash[:error] = "You are not allowed to do that."
-      redirect_to home_path unless current_user.admin?
+      flash["error"] = "You are not allowed to do that."
+      redirect_to 'root_path' unless current_user.admin?
     end
   end
 end

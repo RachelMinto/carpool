@@ -19,7 +19,8 @@
           Leaves #{carpool.parking_address} at #{carpool.pm_start}
           %br
           Arrives at #{carpool.city}, #{carpool.state} at #{carpool.pm_end}
-        .col-md-2
-          %br        
-          %button.btn(type="submit") Request Info        
+        -if logged_in?
+          .col-md-2
+            %br        
+            %button.btn.btn-primary(type="submit") Request Info        
       %hr
