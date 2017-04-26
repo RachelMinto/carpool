@@ -14,7 +14,7 @@ class Admin::CarpoolsController < ApplicationController
         flash["success"] = "Carpool has been successfully approved"
       end
     else
-      flash["error"] = "Something went wrong."
+      flash["danger"] = "Something went wrong."
     end
     redirect_to admin_carpools_path    
   end
@@ -27,14 +27,14 @@ class Admin::CarpoolsController < ApplicationController
         flash["success"] = "Carpool has been successfully denied."
       end
     else
-      flash["error"] = "Something went wrong."
+      flash["danger"] = "Something went wrong."
     end
     redirect_to admin_carpools_path    
   end
 
   def require_admin
     if !current_user.admin?
-      flash["error"] = "You are not allowed to do that."
+      flash["danger"] = "You are not allowed to do that."
       redirect_to 'root_path' unless current_user.admin?
     end
   end

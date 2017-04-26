@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :carpools, only: [:index, :new, :create, :show]
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :info_requests, only: [:create]
 end

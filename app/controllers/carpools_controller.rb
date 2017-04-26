@@ -24,7 +24,6 @@ class CarpoolsController < ApplicationController
 
   def carpool_params
     params.require(:carpool).permit(:parking_address, :city, :state, 
-      :zipcode, :am_start, :am_end, :pm_start, :pm_end,
-      :total_seats)
+      :zipcode, :am_start, :am_end, :pm_start, :pm_end, :total_seats)
   end  
 end  

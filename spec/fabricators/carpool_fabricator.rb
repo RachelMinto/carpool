@@ -8,4 +8,5 @@ Fabricator(:carpool) do
   pm_start { ["04:00", "03:20", "05:15"].sample }
   pm_end { ["05:30", "06:30", "06:15"].sample }
   total_seats { Faker::Number.between(1, 6) }
+  user_id { Fabricate(:user).id }
 end   

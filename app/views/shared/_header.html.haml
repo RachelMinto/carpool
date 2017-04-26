@@ -1,18 +1,18 @@
-%section#top-header.container-fluid
+%section#top-header.container-fluid.clearfix
   .main-header_wrapper.row
     .parent-container
-      .col-md-5.col-md-offset-2
+      .col-md-10.col-md-offset-2
         %h4 COMMUTEWORKS CARPOOL PROGRAM
     - if logged_in?
-      %section#sub-header.row
-        .white.col-md-2.col-md-offset-5
+      %section#sub-header.row.clearfix
+        .white.col-md-2.col-md-offset-2.text-left
           = link_to 'View Carpools', carpools_path
         .white.col-md-2
           = link_to 'Register a Carpool', new_carpool_path          
         .white.login.col-md-2
           = link_to 'Log Out', logout_path      
     - else
-      %section#sub-header.row
+      %section#sub-header.row.clearfix
         .white.col-md-2.col-md-offset-5
           = link_to 'View Carpools', carpools_path
         .white.login.col-md-2
