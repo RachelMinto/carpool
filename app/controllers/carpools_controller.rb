@@ -2,7 +2,7 @@ class CarpoolsController < ApplicationController
   before_action :require_user, only: [:new, :create]
 
   def index
-    @carpools = Carpool.all
+    @carpools = Carpool.all.where(status: :approved)
   end
 
   def new

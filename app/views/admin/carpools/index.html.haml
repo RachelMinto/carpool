@@ -13,14 +13,19 @@
           Leaves #{carpool.city}, #{carpool.state} at #{carpool.am_start}
           %br
           Arrives at #{carpool.parking_address} at #{carpool.am_end}
-        .col-md-5
+        .col-md-4
           %em Outbound
           %br             
           Leaves #{carpool.parking_address} at #{carpool.pm_start}
           %br
           Arrives at #{carpool.city}, #{carpool.state} at #{carpool.pm_end}
-        -if logged_in?
-          .col-md-2
-            %br        
-            %button.btn.btn-primary(type="submit") Request Info        
+        -if carpool.pending?
+          %br
+          .col-md-3
+            .btn-primary.btn.white
+              = link_to "Approve", admin_approve_carpool_path(carpool.id) 
+            .btn-primary.btn.white
+              = link_to "Deny", admin_deny_carpool_path(carpool.id)             
+        -else
+          Status: #{carpool.status}
       %hr
