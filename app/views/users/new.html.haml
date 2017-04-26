@@ -1,0 +1,20 @@
+.padded-column.user-form
+  .row
+    = bootstrap_form_for(@user) do |f|  
+      .with-border.col-md-6.col-md-offset-3
+        %h4.emphasis Register
+        %hr      
+        %fieldset.row
+          %fieldset.col-md-6
+            = f.text_field :first_name, label: 'First Name'
+          %fieldset.col-md-6          
+            = f.text_field :last_name, label: 'Last Name' 
+        %fieldset
+          = f.text_field :institution, label: 'Institution', placeholder: " Beth Israel Deaconess"
+        %fieldset
+          = f.email_field :email, label: 'Email' 
+        %fieldset
+          = f.password_field :password, label: 'Password' 
+        %fieldset.row.text-center
+          .col-md-offset-5
+            %button.btn.col-md-4(type="submit") Sign Up         

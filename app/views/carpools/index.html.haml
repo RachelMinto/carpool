@@ -1,0 +1,26 @@
+.padded-column
+  %section
+    - unless logged_in?
+      %em#register_notice Please login to request information or to register your carpool.
+    - @carpools.each do |carpool|
+      .row.carpool
+        .origin.col-md-6
+          %h4 From #{carpool.city}, #{carpool.state} (#{carpool.total_seats} seats)  
+      .row.carpool
+        .col-md-5
+          %em Inbound
+          %br       
+          Leaves #{carpool.city}, #{carpool.state} at #{carpool.am_start}
+          %br
+          Arrives at #{carpool.parking_address} at #{carpool.am_end}
+        .col-md-5
+          %em Outbound
+          %br             
+          Leaves #{carpool.parking_address} at #{carpool.pm_start}
+          %br
+          Arrives at #{carpool.city}, #{carpool.state} at #{carpool.pm_end}
+      %br
+      .row
+        .col-md-2
+          %button.btn(type="submit") Request Info        
+      %hr

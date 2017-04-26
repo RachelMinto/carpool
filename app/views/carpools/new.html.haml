@@ -1,0 +1,33 @@
+.padded-column
+  .row
+    %h4.emphasis.col-md-4 Register Your Carpool
+  %hr
+  = bootstrap_form_for(@carpool) do |f|
+    %h4.emphasis Origin of the Carpool 
+    .row
+      .form-group.col-md-3
+        = f.text_field :city, label: 'City'
+      .form-group.col-md-2        
+        = f.select :state, us_states
+      .form-group.col-md-2    
+        = f.text_field :zipcode, label: 'Zipcode'
+    .row
+      .form-group.col-md-4        
+        = f.text_field :parking_address, label: 'Parking Location in LMA'    
+    %h4.emphasis Travel Time
+    .form-inline.row
+      .form-group.col-md-12
+        = f.time_field :am_start, label: 'AM Departure Time:'
+        = f.time_field :am_end, label: 'AM Arrival Time:'
+    %fieldset.form-inline.row
+      .form-group.col-md-12
+        = f.time_field :pm_start, label: 'PM Departure Time:'
+        = f.time_field :pm_end, label: 'PM Arrival Time:'   
+    %br   
+    %fieldset.form-inline.row
+      .form-group.col-md-8
+        = f.number_field :total_seats, min: 1, max: 10, label: 'Total number of seats in carpool:'
+    %hr                         
+    .form-group
+      %button.btn.col-md-2(type="submit") Create
+      = link_to "Cancel", "#"
