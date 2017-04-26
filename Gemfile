@@ -16,6 +16,7 @@ gem 'bootstrap_form'
 gem 'bcrypt-ruby'
 gem 'fabrication'
 gem 'faker'
+gem 'draper', '3.0.0.pre1'
 
 group :development do
   gem 'thin'

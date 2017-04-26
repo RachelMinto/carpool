@@ -3,19 +3,31 @@
     .parent-container
       .col-md-10.col-md-offset-2
         %h4 COMMUTEWORKS CARPOOL PROGRAM
-    - if logged_in?
-      %section#sub-header.row.clearfix
-        .white.col-md-2.col-md-offset-2.text-left
+    - if logged_in? && admin?
+      %section#sub-header.row
+        .white.col-md-offset-2
           = link_to 'View Carpools', carpools_path
-        .white.col-md-2
+        .white
           = link_to 'Register a Carpool', new_carpool_path          
-        .white.login.col-md-2
-          = link_to 'Log Out', logout_path      
-    - else
-      %section#sub-header.row.clearfix
-        .white.col-md-2.col-md-offset-5
+        .white
+          = link_to 'Registrations', admin_carpools_path
+        .white
+          = link_to 'Info Requests', info_requests_path         
+        .white
+          = link_to 'Log Out', logout_path           
+    - elsif logged_in?
+      %section#sub-header.row    
+        .white.col-md-offset-2
           = link_to 'View Carpools', carpools_path
-        .white.login.col-md-2
+        .white
+          = link_to 'Register a Carpool', new_carpool_path          
+        .white
+          = link_to 'Log Out', logout_path    
+    - else
+      %section#sub-header.row
+        .white.col-md-offset-2
+          = link_to 'View Carpools', carpools_path
+        .white
           = link_to 'Log In', login_path
-        .white.login.col-md-2
+        .white
           = link_to 'Sign Up', register_path   

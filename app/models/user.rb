@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_many :info_requests
 
   has_secure_password validations: false
+
+  def contact_info
+    "#{first_name} #{last_name}, #{email}"
+  end
 end
